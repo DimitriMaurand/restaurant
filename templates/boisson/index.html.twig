@@ -1,0 +1,74 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Boisson index{% endblock %}
+
+{% block body %}
+
+    <h2 class="text-xl font-bold text-center m-4">Boisson index</h2>
+
+    <div class="m-4">
+        <h3>Filtrer par catégorie :</h3>
+        <div class="flex space-x-4">
+            <!-- Génération des boutons pour chaque catégorie -->
+            <a href="{{ path('app_boisson_index') }}"><button class="btn w-auto bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-md">Toutes</button></a>
+            {% for categorie in categories %}
+                <a href="{{ path('app_boisson_index', {categorie: categorie.nom}) }}">
+                    <button class="btn w-auto bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded-md">{{ categorie.nom }}</button>
+                </a>
+            {% endfor %}
+        </div>
+    </div>
+
+    <table class="table  text-left text-sm whitespace-nowrap">
+        <thead class="uppercase tracking-wider border-b-2 dark:border-neutral-600 bg-neutral-50 dark:bg-neutral-800">
+            <tr>
+                <th scope="col" class="px-6 py-4">Nom</th>
+                <th scope="col" class="px-6 py-4">Appelation</th>
+                <th scope="col" class="px-6 py-4">Annee</th>
+                <th scope="col" class="px-6 py-4">Composition</th>
+                <th scope="col" class="px-6 py-4">Volume</th>
+                <th scope="col" class="px-6 py-4">Prix</th>
+                <th scope="col" class="px-6 py-4">Est Alcolisee</th>
+                <th scope="col" class="px-6 py-4">Disponible</th>
+                <th scope="col" class="px-6 py-4">Catégprie</th>
+                <th scope="col" class="px-6 py-4">Allergène</th>
+                <th scope="col" class="px-6 py-4">actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for boisson in boissons %}
+            <tr class="border-b dark:border-neutral-600">
+                <td scope="row" class="px-6 py-4">{{ boisson.nom }}</td>
+                <td scope="row" class="px-6 py-4">{{ boisson.appelation }}</td>
+                <td scope="row" class="px-6 py-4">{{ boisson.annee }}</td>
+                <td scope="row" class="px-6 py-4">{{ boisson.composition }}</td>
+                <td scope="row" class="px-6 py-4">{{ boisson.volume }}</td>
+                <td scope="row" class="px-6 py-4">{{ boisson.prix }}</td>
+                <td scope="row" class="px-6 py-4">{{ boisson.estAlcolisee ? 'Yes' : 'No' }}</td>
+                 <td scope="row" class="px-6 py-4">
+                    {{ boisson.categorieBoisson.nom }}
+                </td>
+                <td scope="row" class="px-6 py-4">{{ boisson.disponible ? 'Yes' : 'No' }}</td>
+                <td scope="row" class="px-6 py-4">
+                {% for allergene in boisson.allergenes %}
+            <p>{{ allergene.nom }}</p>
+        {% else %}
+            <p>Aucun allergène</p>
+        {% endfor %}
+                <td scope="row" class="px-6 py-4">
+                    <a href="{{ path('app_boisson_show', {'id': boisson.id}) }}"><button class="btn w-20 bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-2 m-2 rounded-md">voir</button></a>
+                    <a href="{{ path('app_boisson_edit', {'id': boisson.id}) }}"><button class="btn w-20 bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-2 m-2 rounded-md">editer</button></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="10">rien de créer</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_boisson_new') }}"><button  class=" m-2 w-auto bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-md"> Créer une boisson</button></a>
+    <a href="{{ path('app_admin_accueil') }}"><button  class="  w-auto bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-md"> Retour</button></a>
+
+{% endblock %}

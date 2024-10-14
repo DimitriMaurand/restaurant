@@ -1,0 +1,40 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Categorie Boisson index{% endblock %}
+
+{% block body %}
+     <div class="bg-white flex justify-center items-center max-h-screen m-20">
+    <div class="w-full flex-col justify-center bg-white rounded-lg shadow-lg p-4 mb-6">
+    <h2 class="text-xl font-bold text-center m-4">Categorie de boisson index</h2>
+<div class="flex justify-center">
+    <table class="table min-w-full text-left text-sm whitespace-nowrap">
+        <thead class="uppercase tracking-wider border-b-2 dark:border-neutral-600 bg-neutral-50 dark:bg-neutral-800">
+            <tr>
+                
+                <th scope="col" class="px-6 py-4">Nom</th>
+                <th scope="col" class="px-6 py-4">actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for categorie_boisson in categorie_boissons %}
+            <tr class="border-b dark:border-neutral-600">
+               
+                <td scope="row" class="px-6 py-4">{{ categorie_boisson.nom }}</td>
+                <td scope="row" class="px-6 py-4">
+                    <a href="{{ path('app_categorie_boisson_show', {'id': categorie_boisson.id}) }}"><button class="btn w-20 bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-2 m-2 rounded-md">voir</button></a>
+                    <a href="{{ path('app_categorie_boisson_edit', {'id': categorie_boisson.id}) }}"><button class="btn w-20 bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-2 m-2 rounded-md">editer</button></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">rien de créer</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+    
+    <a href="{{ path('app_categorie_boisson_new') }}"><button  class=" m-2 w-auto bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-md"> Créer une categorie de boisson</button></a>
+    <a href="{{ path('app_admin_accueil') }}"><button  class="  w-auto bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-md"> Retour</button></a>
+ </div> </div>
+{% endblock %}

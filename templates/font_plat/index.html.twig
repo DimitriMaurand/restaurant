@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Restaurant Excurtion Plat{% endblock %}
+
+{% block body %}
+ <main class=" min-h-screen  flex-col items-center justify-between w-full md:p-24 bg-white">
+           {% include('includes/nav.html.twig') %}
+
+            <div class="bg-gray-50 w-full ">
+                <div class="mx-auto max-w-7xl  lg:px-8">
+                    <div class="mx-auto max-w-2xl py-16 sm:py-24 lg:max-w-none lg:py-32">
+                        <div class="group relative  bg-white rounded-lg shadow-lg p-4   mb-6 ">
+                            <h3 class=" text-4xl text-green-700 text-center font-semibold m-4">Nos Plats</h3>
+
+                            <div class="relative h-80 w-full overflow-hidden rounded-lg sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1  sm:h-64">
+                                <img src="https://images.unsplash.com/photo-1464093515883-ec948246accb?q=80&w=2659&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="représente un plat pour la carte des plats" class="h-full w-full object-cover object-center" />
+                            </div>
+                         
+                           {% for produit in produits %}
+                             {% if produit.disponible and produit.categorie.nom == 'plat' %}
+                                <div class="m-4 transform hover:scale-105 transition-transform">
+                                     <div class="flex justify-between font-bold">
+                                        <h3  class="text-xl">{{ produit.nom }}</h3>
+                                        <h4>{{ produit.prix }}€</h4>
+                                    </div>
+                                     <p class="text-base text-gray-900">{{ produit.composition }}</p>
+                                    </div>
+                                    <div class="flex flex-row flex-wrap items-center" >
+                                    <p>Allergène(s) :</p> 
+                                     {% for allergene in produit.allergenes %}
+                                           <div class="flex flex-row flex-wrap " ><p class="border-2 border-red-500 rounded-lg text-center shadow-lg text-base text-red-600 w-fit m-2 p-1" >{{ allergene.nom }}</p></div>
+                                        {% else %}
+                                            <p>Aucun allergène</p>
+                                        {% endfor %}
+                                         </div>
+                            {% endif %}
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+{% endblock %}

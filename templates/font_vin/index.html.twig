@@ -1,0 +1,69 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Restaurant Excurtion Carte des Vins{% endblock %}
+
+{% block body %}
+ <main class=" min-h-screen  flex-col items-center justify-between w-full md:p-24 bg-white">
+           {% include('includes/nav.html.twig') %}
+            <div class="bg-gray-50 w-full ">
+                <div class="mx-auto max-w-7xl  lg:px-8">
+                    <div class="mx-auto max-w-2xl py-16 sm:py-24 lg:max-w-none lg:py-32">
+                        <div class="group relative  bg-white rounded-lg shadow-lg p-4   mb-6 ">
+                            <h2 class=" text-2xl text-green-700 text-center font-semibold m-4">Carte des Vins</h2>
+
+                            <div class="relative h-80 w-full overflow-hidden rounded-lg sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1  sm:h-64">
+                                <img src="https://images.unsplash.com/photo-1600320183466-7198f22d3c8a?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="représente une bouteille de vin pour la carte des vins" class="h-full w-full object-cover object-center" />
+                            </div>
+                            <h2 class=" text-2xl text-green-700 text-center font-semibold m-4">Vins rouge</h2>
+                             {% for boisson in boissons %}
+                             {% if boisson.disponible and boisson.categorieBoisson.nom == 'Vin rouge' %}
+                                <div class="m-4 transform hover:scale-105 transition-transform">
+                                     <div class="flex-wrap md:grid md:grid-cols-5 justify-between font-bold">
+                                        <h4>{{ boisson.nom }}</h4>
+                                         <p class="text-base text-gray-900">{{ boisson.appelation }}</p>
+                                        <h4>{{ boisson.annee }}</h4>
+                                         <p class="text-base text-gray-900">{{ boisson.volume }} cl</p>
+                                        <h4>{{ boisson.prix }} €</h4>
+                                    </div>                                 
+                                       
+                                </div>
+                            {% endif %}
+                            {% endfor %}
+                            <h2 class=" text-2xl text-green-700 text-center font-semibold m-4">Vins Blanc</h2>
+                             {% for boisson in boissons %}
+                             {% if boisson.disponible and boisson.categorieBoisson.nom == 'Vin blanc' %}
+                                <div class="m-4 transform hover:scale-105 transition-transform">
+                                     <div class="flex-wrap md:grid md:grid-cols-5 justify-between font-bold">
+                                        <h4>{{ boisson.nom }}</h4>
+                                         <p class="text-base text-gray-900">{{ boisson.appelation }}</p>
+                                        <h4>{{ boisson.annee }}</h4>
+                                         <p class="text-base text-gray-900">{{ boisson.volume }} cl</p>
+                                        <h4>{{ boisson.prix }} €</h4>
+                                    </div>                                 
+                                       
+                                </div>
+                            {% endif %}
+                            {% endfor %}
+                            <h2 class=" text-2xl text-green-700 text-center font-semibold m-4">Vins Rosé</h2>
+                            {% for boisson in boissons %}
+                             {% if boisson.disponible and boisson.categorieBoisson.nom == 'Vin rosé' %}
+                                <div class="m-4 transform hover:scale-105 transition-transform">
+                                     <div class="flex-wrap md:grid md:grid-cols-5 justify-between font-bold">
+                                        <h4>{{ boisson.nom }}</h4>
+                                         <p class="text-base text-gray-900">{{ boisson.appelation }}</p>
+                                        <h4>{{ boisson.annee }}</h4>
+                                         <p class="text-base text-gray-900">{{ boisson.volume }} cl</p>
+                                        <h4>{{ boisson.prix }} €</h4>
+                                    </div>                                 
+                                       
+                                </div>
+                            {% endif %}
+
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        </main>
+{% endblock %}

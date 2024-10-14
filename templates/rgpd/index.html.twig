@@ -1,0 +1,45 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Hello RgpdController!{% endblock %}
+
+{% block body %}
+<main class=" min-h-screen  flex-col items-center justify-between w-full md:p-24 bg-white">
+             {% include('includes/nav.html.twig') %}
+            <div class="bg-gray-50 ">
+                <div class="mx-auto max-w-7xl  lg:px-8">
+                    <div class="mx-auto max-w-2xl py-16 sm:py-24 lg:max-w-none lg:py-32">
+                        {# présentation #}
+                        <section class="mt-4 bg-white rounded-lg shadow-lg p-4 présentation">
+                            <h2 class="text-5xl md:text-2xl m-4 text-green-700 font-semibold text-center">Réglementation du Stockage des Données en Base de Données en France</h2>
+    
+    <p class="text-xl md:text-base">En France, la gestion et le stockage des données personnelles dans une base de données, notamment pour les sites Internet, sont régis par le Règlement Général sur la Protection des Données (RGPD), applicable depuis le 25 mai 2018.</p>
+
+    <h2 class="text-5xl md:text-2xl m-4 text-green-700 font-semibold text-center">Données concernées</h2>
+    <p class="text-xl md:text-base">Les données personnelles concernent toute information permettant d’identifier directement ou indirectement une personne physique, par exemple :</p>
+    <ul>
+        <li class="text-xl md:text-base">Nom, prénom, adresse postale et électronique</li>
+        <li class="text-xl md:text-base">Numéro de téléphone</li>
+        <li class="text-xl md:text-base">Identifiant unique, adresse IP</li>
+    </ul>
+
+    <h2 class="text-5xl md:text-2xl m-4 text-green-700 font-semibold text-center">Principes du RGPD à respecter</h2>
+    <p class="text-xl md:text-base">Le RGPD impose plusieurs principes, parmi lesquels :</p>
+    <ul>
+        <li class="text-xl md:text-base"><strong>Consentement :</strong> Il doit être explicite et rétractable à tout moment.</li>
+        <li class="text-xl md:text-base"><strong>Minimisation des données :</strong> Ne collecter que les données nécessaires.</li>
+        <li class="text-xl md:text-base"><strong>Sécurité des données :</strong> Protéger les données contre les accès non autorisés.</li>
+    </ul>
+
+    <h2 class="text-5xl md:text-2xl m-4 text-green-700 font-semibold text-center">Hébergement des Données</h2>
+    <p class="text-xl md:text-base">Le stockage des données doit respecter les directives européennes, notamment celles liées à la localisation des serveurs.</p>
+
+    <h2 class="text-5xl md:text-2xl m-4 text-green-700 font-semibold text-center">Mesures de Sécurité</h2>
+    <p class="text-xl md:text-base">Le chiffrement, le contrôle d'accès et les sauvegardes régulières sont parmi les mesures de sécurité essentielles pour protéger les données.</p>
+</section>
+                        </section>
+                    </div>
+                </div>
+            </div>
+</main>
+
+{% endblock %}

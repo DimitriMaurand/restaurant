@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouveau Reservation{% endblock %}
+
+{% block body %}
+
+  
+   
+    <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Gestion des messages</h2>
+ 
+    
+
+    {{ include('reservation/_form.html.twig') }}
+
+    <a href="{{ path('app_reservation_index') }}"><button  class="  w-auto bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-md">Retour</button></a>
+
+{% endblock %}

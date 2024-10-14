@@ -1,0 +1,19 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Edit Menu{% endblock %}
+
+{% block body %}
+   <div class=" flex  flex justify-center px-6 py-12 lg:px-8 bg-white max-h-screen m-20">
+<div  class="w-full flex-col justify-center bg-white rounded-lg shadow-lg p-4  mb-6">
+  <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+   
+    <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Editer un menu</h2>
+  </div>
+
+    {{ include('menu/_form.html.twig', {'button_label': 'Sauvegarder'}) }}
+<div class="flex justify-center mt-4">
+    <a href="{{ path('app_menu_index') }}"><button  class="  w-auto bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-md">Retour</button></a>
+</div>
+   </div></div>
+</div>
+{% endblock %}

@@ -1,0 +1,37 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}StatutReservation index{% endblock %}
+
+{% block body %}
+    <h2 class="text-xl font-bold text-center m-4">Statut reservation index</h2>
+
+    <table class="table min-w-full text-left text-sm whitespace-nowrap">
+        <thead scope="col" class="px-6 py-4">
+            <tr>
+                <th scope="col" class="px-6 py-4">Id</th>
+                <th scope="col" class="px-6 py-4">Nom</th>
+                <th scope="col" class="px-6 py-4">actions</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for statut_reservation in statut_reservations %}
+            <tr>
+                <td scope="row" class="px-6 py-4">{{ statut_reservation.id }}</td>
+                <td scope="row" class="px-6 py-4">{{ statut_reservation.nom }}</td>
+                <td scope="row" class="px-6 py-4">
+                    <a href="{{ path('app_statut_reservation_show', {'id': statut_reservation.id}) }}"><button class="btn w-20 bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-2 m-2 rounded-md">voir</button></a>
+                    <a href="{{ path('app_statut_reservation_edit', {'id': statut_reservation.id}) }}"><button class="btn w-20 bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-2 m-2 rounded-md">editer</button></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="3">rien de créer</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_statut_reservation_new') }}"><button  class="m-2  w-auto bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-md"> Créer un statut de réservation</button></a>
+    <a href="{{ path('app_admin_accueil') }}"><button  class="  w-auto bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-md"> Retour</button></a>
+
+{% endblock %}

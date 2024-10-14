@@ -1,0 +1,60 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Reservation index{% endblock %}
+
+{% block body %}
+
+    <h2 class="text-xl font-bold text-center m-4">Reservation index</h2>
+
+    <table class="table min-w-full text-left text-sm whitespace-nowrap">
+        <thead scope="col" class="px-6 py-4">
+            <tr>
+                
+                <th scope="col" class="px-6 py-4">Nom</th>
+                <th scope="col" class="px-6 py-4">Prenom</th>
+                <th scope="col" class="px-6 py-4">Telephone</th>
+                <th scope="col" class="px-6 py-4">Email</th>
+                <th scope="col" class="px-6 py-4">Message</th>
+                <th scope="col" class="px-6 py-4">DateEnvoi</th>
+                <th scope="col" class="px-6 py-4">Rgpd</th>
+                <th scope="col" class="px-6 py-4">Statut</th>
+                <th scope="col" class="px-6 py-4">actions</th>
+            </tr>
+        </thead>
+        <tbody> 
+        {% for reservation in reservations %}
+      
+            <tr class="border-b dark:border-neutral-600">
+                
+                <td scope="row" class="px-6 py-4">{{ reservation.nom }}</td>
+                <td scope="row" class="px-6 py-4">{{ reservation.prenom }}</td>
+                <td scope="row" class="px-6 py-4">{{ reservation.telephone }}</td>
+                <td scope="row" class="px-6 py-4">{{ reservation.email }}</td>
+                <td scope="row" class="px-6 py-4">{{ reservation.message }}</td>
+                <td scope="row" class="px-6 py-4">{{ reservation.dateEnvoi ? reservation.dateEnvoi|date('Y-m-d H:i:s') : '' }}</td>
+                <td scope="row" class="px-6 py-4">{{ reservation.rgpd ? reservation.rgpd|date('Y-m-d H:i:s') : '' }}</td>
+
+                <td scope="row" class="px-6 py-4">
+ {% if reservation.ReservationASatatu is not null %}
+        {{ reservation.ReservationASatatu.nom }}
+    {% else %}
+        Pas de statut
+    {% endif %}
+    </td>
+                <td scope="row" class="px-6 py-4">
+                    <a href="{{ path('app_reservation_show', {'id': reservation.id}) }}"><button class="btn w-20 bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-2 m-2 rounded-md">voir</button></a>
+                    <a href="{{ path('app_reservation_edit', {'id': reservation.id}) }}"><button class="btn w-20 bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-2 m-2 rounded-md">editer</button></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="9">rien de créer</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+    <a href="{{ path('app_reservation_new') }}"><button  class="m-2  w-auto bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-md"> Créer une réservation</button></a>
+    <a href="{{ path('app_admin_accueil') }}"><button  class="  w-auto bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-md"> Retour</button></a>
+</div> </div>
+{% endblock %}

@@ -1,0 +1,61 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Restaurant Excurtion Menu{% endblock %}
+
+{% block body %}
+ <main class=" min-h-screen  flex-col items-center justify-between w-full md:p-24 bg-white">
+             {% include('includes/nav.html.twig') %}
+
+            <div class="bg-gray-50 w-full ">
+                <div class="mx-auto max-w-7xl  lg:px-8">
+                    <div class="mx-auto max-w-2xl py-16 sm:py-24 lg:max-w-none lg:py-32">
+                        <div class="group relative  bg-white rounded-lg shadow-lg p-4   mb-6 ">
+                            <h3 class=" text-4xl text-green-700 text-center font-semibold m-4">Menu</h3>
+
+                            <div class="relative h-80 w-full overflow-hidden rounded-lg sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1  sm:h-64">
+                                <img src="https://plus.unsplash.com/premium_photo-1680158492794-79896e951487?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="représente un menu pour la carte des menus" class="h-full w-full object-cover object-center" />
+                            </div>
+                            
+                           {% for menu in menus %}
+                                {% if menu.disponible %}
+                                    <div class="m-16 transform  flex-col flex justify-center items-center hover:scale-105 transition-transform">
+                                        <div class=" m-2 font-bold flex text-xl space-x-4">
+                                            <h3 class="text-xl">{{ menu.nom }}</h3>
+                                            <h4>{{ menu.prix }} €</h4>
+                                        </div>
+
+                                        <div class="text-center text-xl">
+                                            {% for item in menu.menuProduit %}
+                                                <p class=" m-2  text-base font-bold text-gray-900 ">
+                                                    {{ item.nom }} <br>
+                                                </p>
+                                                <p class="m-2  text-base text-gray-900">
+                                                    {{ item.composition }} <br>
+                                                </p>
+                                                <div class="m-2  justify-center items-center flex flex-row flex-wrap " >
+                                                    <p class="text-base">Allergène(s) :</p> 
+                                                     {% for allergene in item.allergenes %}
+                                                        <div class="flex flex-row flex-wrap " ><p class="border-2 border-red-500 rounded-lg text-center shadow-lg text-base text-red-600 w-fit m-2 p-1" >{{ allergene.nom }}</p></div>
+                                                     {% else %}
+                                                        <p>Aucun allergène</p>
+                                                    {% endfor %}
+                                                </div>
+                                                <div class="w-1/2 mx-auto border-t-2 border-gray-500"></div>
+                                            {% endfor %}
+                                        </div>
+                                        <div class="flex justify-center">
+                                        <div class="border-t border-gray-700 w-1/2"></div>
+                                        </div>
+
+                                    </div>
+                                {% endif %}
+                            {% endfor %}
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            
+        </main>
+{% endblock %}

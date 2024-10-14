@@ -1,0 +1,55 @@
+    <header class="bg-white h-1/3">
+
+        <div class=" w-full bg-fff">
+            <div class="h-24 flex items-center ">
+               <a href="{{ path('app_home') }}"> <img class="w-24 h-24" src="/logo-png (2).webp" alt="logo du restaurant" /></a>
+                <h1 class='w-full text-5xl text-green-700 font-bold text-center'>Restaurant l’excursion</h1>
+                <!-- /*{% if app.user %}
+                {# L'utilisateur est connecté, affiche le bouton de déconnexion #}*/ -->
+                <a href="{{ path('app_logout') }}"><button class="btn w-34 bg-red-500 hover:bg-red-600 text-white font-bold py-2 px-4 ml-2 rounded-md m-2">Déconnexion</button></a>
+                <!-- // {% else %}
+                //{# L'utilisateur n'est pas connecté, affiche le bouton de connexion #}
+
+                // {% endif %} -->
+            </div>
+            {# <div class=" h-96 ">
+                <img class="object-cover h-full w-full" src="/restaurant.webp" alt="image du restaurant au bord de la plage des landes">
+            </div> #}
+            <!-- Diaporama -->
+        <div class="relative h-96 overflow-hidden">
+            <div class="absolute inset-0 h-full w-full transition-opacity duration-1000 ease-in-out opacity-100 diapositive-image">
+                <img class="object-cover h-full w-full" src="/restaurant.webp" alt="restaurant au bord de la plage des Landes 1">
+            </div>
+            <div class="absolute inset-0 h-full w-full transition-opacity duration-1000 ease-in-out opacity-0 diapositive-image">
+                <img class="object-cover h-full w-full" src="/nuit.webp" alt="restaurant au bord de la plage des Landes 2">
+            </div>
+            <div class="absolute inset-0 h-full w-full transition-opacity duration-1000 ease-in-out opacity-0 diapositive-image">
+                <img class="object-cover h-full w-full" src="/menu.webp" alt="restaurant au bord de la plage des Landes 3">
+            </div>
+            <div class="absolute inset-0 h-full w-full transition-opacity duration-1000 ease-in-out opacity-0 diapositive-image">
+                <img class="object-cover h-full w-full" src="/ambiance-cosy-de-la-salle-_1_.webp" alt="restaurant au bord de la plage des Landes 3">
+            </div>
+            <div class="absolute inset-0 h-full w-full transition-opacity duration-1000 ease-in-out opacity-0 diapositive-image">
+                <img class="object-cover h-full w-full" src="/ambiance-cosy-de-la-salle.webp" alt="restaurant au bord de la plage des Landes 3">
+            </div>
+        </div>
+        
+    </header>
+  <script>
+    document.addEventListener('DOMContentLoaded', function () {
+        let diapositives = document.querySelectorAll('.diapositive-image');
+        let diapositiveActuelle = 0;
+
+        function afficherProchaineDiapositive() {
+            diapositives[diapositiveActuelle].classList.add('opacity-0');
+            diapositives[diapositiveActuelle].classList.remove('opacity-100');
+
+            diapositiveActuelle = (diapositiveActuelle + 1) % diapositives.length;
+
+            diapositives[diapositiveActuelle].classList.add('opacity-100');
+            diapositives[diapositiveActuelle].classList.remove('opacity-0');
+        }
+
+        setInterval(afficherProchaineDiapositive, 5000); // Change d'image toutes les 5 secondes
+    });
+</script>

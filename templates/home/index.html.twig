@@ -1,0 +1,232 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Restaurant Excurtion Acceuil{% endblock %}
+
+{% block body %}
+
+
+<main class=" min-h-screen  flex-col items-center justify-between w-full md:p-24 bg-white">
+    {% include('includes/nav.html.twig') %}
+    <div class="bg-gray-50 ">
+        <div class="mx-auto max-w-7xl  lg:px-8">
+            <div class="mx-auto max-w-2xl py-16 sm:py-24 lg:max-w-none lg:py-32">
+                {# présentation #}
+                <section class="mt-4 bg-white rounded-lg shadow-lg p-4 présentation">
+                    <div class="md:grid md:grid-cols-2 gap-8 items-center">
+                        <!-- Section de texte -->
+                        <article>
+                            <h2 class="text-5xl md:text-3xl m-4 text-green-700 font-semibold text-center">Présentation
+                            </h2>
+
+                            <p class="text-xl md:text-base my-4">
+                                Situé au cœur de la magnifique plage de Contis, le restaurant Excursion vous invite à un
+                                voyage
+                                culinaire unique.
+                                Notre cuisine fusionne les saveurs authentiques du Sud-Ouest de la France avec des
+                                influences exotiques
+                                venues d’ailleurs.
+                            </p>
+
+                            <!-- L'image est affichée sous ce paragraphe sur mobile -->
+                            <div class="md:hidden my-6">
+                                <img src="/nuit.webp" alt="restaurant la nuit" class="rounded-lg shadow-lg w-full">
+                            </div>
+
+                            <p class="text-xl md:text-base my-4">
+                                <strong>Des produits locaux et frais :</strong> Notre chef s’approvisionne auprès des
+                                producteurs locaux
+                                pour garantir
+                                la fraîcheur et la qualité de chaque plat.
+                            </p>
+
+                            <p class="text-xl md:text-base my-4">
+                                <strong>Le Sud-Ouest à l’honneur :</strong> Dégustez des spécialités régionales telles
+                                que le foie gras,
+                                le magret de canard,
+                                et les fromages de brebis. Chaque bouchée vous transportera dans les vignobles et les
+                                marchés animés de
+                                la région.
+                            </p>
+
+                            <p class="text-xl md:text-base my-4">
+                                <strong>Une touche exotique :</strong> Notre menu propose également des plats inspirés
+                                des cuisines
+                                d’autres horizons.
+                                Des épices envoûtantes, des fruits tropicaux et des herbes aromatiques viennent sublimer
+                                nos créations.
+                            </p>
+
+                            <p class="text-xl md:text-base my-4">
+                                <strong>Vue panoramique sur l’océan :</strong> Installez-vous en terrasse et profitez
+                                d’une vue à couper
+                                le souffle sur l’océan Atlantique.
+                                Le bruit des vagues accompagnera votre repas.
+                            </p>
+
+                            <p class="text-xl md:text-base my-4">
+                                <strong>Ambiance chaleureuse :</strong> Notre équipe attentionnée vous accueillera avec
+                                le sourire et
+                                veillera à ce que votre expérience
+                                soit mémorable.
+                            </p>
+
+                            <p class="text-xl md:text-base my-6">
+                                Que vous soyez un amateur de cuisine locale ou un aventurier des saveurs, Excursion est
+                                l’endroit idéal
+                                pour un déjeuner ensoleillé ou
+                                un dîner romantique. Réservez dès maintenant et laissez-vous emporter par ce voyage
+                                gustatif inoubliable
+                                !
+                            </p>
+                        </article>
+
+                        <!-- Section image pour les écrans md et plus grands -->
+                        <div class="hidden md:block flex justify-center items-center  mt-6 md:mt-0">
+                            <img src="/nuit.webp" alt="restaurant la nuit"
+                                class="rounded-lg  shadow-lg w-full md:w-full">
+                        </div>
+                    </div>
+                </section>
+                {# {/* carte */} #}
+                <section class="mt-4 bg-white rounded-lg shadow-lg p-4">
+                    <h2 class="text-5xl md:text-3xl m-4  text-green-700 font-semibold text-center">Notre Carte</h2>
+                    <div class="mt-6 space-y-12 lg:grid lg:grid-cols-3 lg:gap-x-6 lg:space-y-0">
+                        <a href="{{ path('app_font_entree') }}" class="">
+                            <button class="w-full">
+                                <div
+                                    class="group relative  bg-white rounded-lg shadow-lg p-4 transform hover:scale-105 transition-transform mb-6">
+                                    <h3 class=" text-2xl text-green-700 text-center font-semibold m-4">Entrées</h3>
+                                    <div
+                                        class="relative h-80 w-full overflow-hidden rounded-lg sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1  sm:h-64">
+                                        <img alt="une entree"
+                                            src="https://images.unsplash.com/photo-1580638149300-65f0b9e8fbff?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                            class="h-full w-full object-cover object-center" />
+                                    </div>
+
+                                </div>
+                            </button>
+                        </a>
+                        <a href="{{ path('app_font_plat') }}" class="">
+                            <button class="w-full">
+                                <div
+                                    class="group relative  bg-white rounded-lg shadow-lg p-4 transform hover:scale-105 transition-transform mb-6">
+                                    <h3 class=" text-2xl text-green-700 text-center font-semibold m-4">Plats</h3>
+                                    <div
+                                        class="relative h-80 w-full overflow-hidden rounded-lg sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1  sm:h-64">
+                                        <img src="https://images.unsplash.com/photo-1464093515883-ec948246accb?q=80&w=2659&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                            alt="un plat" class="h-full w-full object-cover object-center" />
+                                    </div>
+                                </div>
+                            </button>
+                        </a>
+                        <a href="{{ path('app_font_dessert') }}" class="">
+                            <button class="w-full">
+                                <div
+                                    class="group relative  bg-white rounded-lg shadow-lg p-4 transform hover:scale-105 transition-transform mb-6">
+                                    <h3 class=" text-2xl text-green-700 text-center font-semibold m-4">Fromages et
+                                        Desserts</h3>
+                                    <div
+                                        class="relative h-80 w-full overflow-hidden rounded-lg sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1  sm:h-64">
+                                        <img src="/Dessert.webp" alt="un dessert"
+                                            class="h-full w-full object-cover object-center" />
+                                    </div>
+
+                                </div>
+                            </button>
+                        </a>
+                    </div>
+
+                </section>
+                {# {/* Menu */} #}
+                <section class="mt-4 bg-white rounded-lg shadow-lg p-4">
+                    <h2 class="text-5xl md:text-3xl m-4  text-green-700 font-semibold text-center">Nos Menus</h2>
+                    <div>
+                        <a href="{{ path('app_font_menu') }}" class="">
+                            <button class="w-full">
+                                <div
+                                    class="group relative  bg-white rounded-lg shadow-lg p-4 transform hover:scale-105 transition-transform mb-6">
+
+                                    <div
+                                        class="relative h-80 w-full overflow-hidden rounded-lg sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1  sm:h-64">
+                                        <img src="/menu.webp" alt="plusieurs plats sur la table"
+                                            class="h-full w-full object-cover object-center" />
+                                    </div>
+                                </div>
+                            </button>
+                        </a>
+                    </div>
+                </section>
+                {# {/* boisson */} #}
+                <section class="mt-4 bg-white rounded-lg shadow-lg p-4">
+                    <h2 class="text-5xl md:text-3xl m-4  text-green-700 font-semibold text-center">Notre carte de
+                        Boissons</h2>
+                    <div>
+                        <a href="{{ path('app_font_boisson') }}" class="">
+                            <button class="w-full">
+                                <div
+                                    class="group relative  bg-white rounded-lg shadow-lg p-4 transform hover:scale-105 transition-transform mb-6">
+                                    <h3 class=" text-2xl text-green-700 text-center font-semibold m-4">Nos boissons</h3>
+                                    <div
+                                        class="relative h-80 w-full overflow-hidden rounded-lg sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1  sm:h-64">
+                                        <img src="https://plus.unsplash.com/premium_photo-1663047175170-44256eac4189?q=80&w=2670&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                            alt="personne qui trinque a l'apéritif"
+                                            class="h-full w-full object-cover object-center" />
+                                    </div>
+                                </div>
+                            </button>
+                        </a>
+                        <a href="{{ path('app_font_vin') }}" class="">
+                            <button class="w-full">
+                                <div
+                                    class="group relative  bg-white rounded-lg shadow-lg p-4 transform hover:scale-105 transition-transform mb-6">
+                                    <h3 class=" text-2xl text-green-700 text-center font-semibold m-4">Notre Carte des
+                                        Vins</h3>
+                                    <div
+                                        class="relative h-80 w-full overflow-hidden rounded-lg sm:aspect-h-1 sm:aspect-w-2 lg:aspect-h-1 lg:aspect-w-1  sm:h-64">
+                                        <img src="https://images.unsplash.com/photo-1600320183466-7198f22d3c8a?q=80&w=2574&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D"
+                                            alt="image d'une bouteille de vin avec un verre"
+                                            class="h-full w-full object-cover object-center" />
+                                    </div>
+
+                                </div>
+                            </button>
+                        </a>
+                    </div>
+
+                </section>
+                {# {/* formulaire */} #}
+                <section id="form" class="bg-gray-100 rounded-lg shadow-lg p-4 mb-4">
+                    <div class=" justify-center items-center mt-16">
+                        <h3 class=" text-2xl text-green-700 text-center font-semibold m-4"> contactez nous</h3>
+                        <p class="text-base text-center  text-gray-900 m-4">Pour plus en renseignement ou pour finaliser
+                            une réservation</p>
+                    </div>
+
+                    {{ include('reservation/_form.html.twig') }}
+
+
+
+                </section>
+                <section class="bg-gray-100 rounded-lg shadow-lg p-4 ">
+                    <div class="flex flex-col justify-center items-center mt-16">
+                        <h3 class="text-xl text-green-700 text-center font-semibold m-4">Plage central</h3>
+                        <h3 class="text-xl text-green-700 text-center font-semibold m-4">Contis Plage 40620</h3>
+                        <h3 class="text-xl text-green-700 text-center font-semibold m-4">05 58 70 70 70</h3>
+                        <iframe loading="lazy" title="Carte interactive de Contis Plage"
+                            src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d11462.468068845204!2d-1.331197181603804!3d44.09125898542303!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0xd538cd3afab9b4d%3A0x87e35fc0bbd907ff!2sContis%20les%20Bains%2C%2040170%20Saint-Julien-en-Born!5e0!3m2!1sfr!2sfr!4v1728380172862!5m2!1sfr!2sfr"
+                            width="400" height="300" style="border:0;" allowfullscreen="" loading="lazy"
+                            referrerpolicy="no-referrer-when-downgrade"></iframe>
+                    </div>
+
+
+
+                </section>
+
+            </div>
+        </div>
+    </div>
+
+</main>
+
+
+{% endblock %}

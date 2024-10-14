@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+ <html lang="fr">
+    <head>
+       
+        <meta charset="UTF-8">
+        <title>{% block title %}Restaurant Excurtion{% endblock %}</title>
+        <meta name="viewport" content="width=device-width, initial-scale=1" >
+        <meta name="description" content="Découvrez Excursion, un restaurant situé sur la plage de Contis, offrant une cuisine fusion unique du Sud-Ouest de la France avec des influences exotiques. Profitez de produits locaux frais, de spécialités régionales et d'une vue panoramique sur l'océan Atlantique. Réservez dès maintenant pour une expérience culinaire inoubliable.">
+        <link rel="icon" href="/logo-png.png">
+        <script src="https://kit.fontawesome.com/baf950d5f0.js" crossorigin="anonymous"></script>
+        {% block stylesheets %}
+            {{ encore_entry_link_tags('app') }}
+        {% endblock %}
+
+        {% block javascripts %}
+            {{ encore_entry_script_tags('app') }}
+            {% block importmap %}{{ importmap('app') }}{% endblock %}
+        {% endblock %}
+    </head>
+    <body>
+    {% include('includes/header.html.twig') %}
+   
+        {% block body %}{% endblock %}
+       {% include('includes/footer.html.twig') %} 
+    </body>
+        
+        <script src="https://cdn.tailwindcss.com"></script>
+</html>

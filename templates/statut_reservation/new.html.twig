@@ -1,0 +1,16 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Nouveau StatutReservation{% endblock %}
+
+{% block body %}
+   <div class="bg-white  flex justify-center px-6 py-12 lg:px-8min-h-screen m-20">
+<div  class="w-full flex-col justify-center bg-white rounded-lg shadow-lg p-4  mb-6">
+  <div class="sm:mx-auto sm:w-full sm:max-w-sm">
+   
+    <h2 class="mt-10 text-center text-2xl font-bold leading-9 tracking-tight text-gray-900">Gestion des catégorie de message</h2>
+  </div>
+
+    {{ include('statut_reservation/_form.html.twig') }}
+
+    <a href="{{ path('app_statut_reservation_index') }}"><button  class="  w-auto bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-md">Retour</button></a>
+{% endblock %}

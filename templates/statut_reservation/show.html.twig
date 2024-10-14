@@ -1,0 +1,26 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Statut Reservation{% endblock %}
+
+{% block body %}
+     <h2 class="text-xl font-bold text-center m-4">Statut Reservation</h2>
+
+    <table class="table">
+        <tbody>
+            <tr>
+                <th>Id</th>
+                <td>{{ statut_reservation.id }}</td>
+            </tr>
+            <tr>
+                <th>Nom</th>
+                <td>{{ statut_reservation.nom }}</td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a href="{{ path('app_statut_reservation_index') }}"><button  class="  w-auto bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-md">Retour</button></a>
+
+    <a href="{{ path('app_statut_reservation_edit', {'id': statut_reservation.id}) }}"><button class="btn w-20 bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 ml-2 rounded-md m-2">editer</button></a>
+
+    {{ include('statut_reservation/_delete_form.html.twig') }}
+{% endblock %}

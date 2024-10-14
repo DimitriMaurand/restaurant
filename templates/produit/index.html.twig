@@ -1,0 +1,72 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Produit index{% endblock %}
+
+{% block body %}
+
+    <h2 class="text-xl font-bold text-center m-4">Produit index</h2>
+
+    <!-- Boutons de filtrage -->
+    <div class="text-center mb-4">
+        <a href="{{ path('app_produit_index', {categorie: 'entrée'}) }}">
+            <button class="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-md">Entrée</button>
+        </a>
+        <a href="{{ path('app_produit_index', {categorie: 'plat'}) }}">
+            <button class="bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-4 rounded-md">Plat</button>
+        </a>
+        <a href="{{ path('app_produit_index', {categorie: 'dessert'}) }}">
+            <button class="bg-yellow-500 hover:bg-yellow-600 text-white font-bold py-2 px-4 rounded-md">Dessert</button>
+        </a>
+        <a href="{{ path('app_produit_index') }}">
+            <button class="bg-gray-500 hover:bg-gray-600 text-white font-bold py-2 px-4 rounded-md">Tous</button>
+        </a>
+    </div>
+
+<div class="flex justify-center">
+    <table class="table min-w-full text-left text-sm whitespace-nowrap">
+        <thead scope="col" class="px-6 py-4">
+            <tr>
+                
+                <th scope="col" class="px-6 py-4">Nom</th>
+                <th scope="col" class="px-6 py-4">Composition</th>
+                <th scope="col" class="px-6 py-4">Prix</th>
+                <th scope="col" class="px-6 py-4">Disponible</th>
+                <th scope="col" class="px-6 py-4">Catégprie</th>
+                <th scope="col" class="px-6 py-4">Allergène</th>
+                <th scope="col" class="px-6 py-4">actions</th>
+            </tr>
+        </thead>
+        <tbody>
+       
+        {% for produit in produits %}
+            <tr class="border-b dark:border-neutral-600">
+                
+                <td scope="row" class="px-6 py-4">{{ produit.nom }}</td>
+                <td scope="row" class="px-6 py-4">{{ produit.composition }}</td>
+                <td scope="row" class="px-6 py-4">{{ produit.prix }}</td>
+                <td scope="row" class="px-6 py-4">{{ produit.disponible ? 'Yes' : 'No' }}</td>
+               <td scope="row" class="px-6 py-4">
+                    {{ produit.categorie.nom }}
+                </td>
+                <td scope="row" class="px-6 py-4">
+                {% for allergene in produit.allergenes %}
+                    {{ allergene.nom }}
+                {% endfor %}</td>
+                <td scope="row" class="px-6 py-4">
+                    <a href="{{ path('app_produit_show', {'id': produit.id}) }}"><button class="btn w-20 bg-orange-500 hover:bg-orange-600 text-white font-bold py-2 px-2 m-2 rounded-md">voir</button></a>
+                    <a href="{{ path('app_produit_edit', {'id': produit.id}) }}"><button class="btn w-20 bg-green-500 hover:bg-green-600 text-white font-bold py-2 px-2 m-2 rounded-md">editer</button></a>
+                </td>
+            </tr>
+        {% else %}
+            <tr>
+                <td colspan="6">rien de créer</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+</div>
+
+    <a href="{{ path('app_produit_new') }}"><button  class="  w-auto bg-green-500 hover:bg-green-600 text-white font-bold m-2 py-2 px-4 rounded-md"> Créer un produit</button></a>
+        <a href="{{ path('app_admin_accueil') }}"><button  class="  w-auto bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-4 rounded-md"> Retour</button></a>
+
+{% endblock %}
